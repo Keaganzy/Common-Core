@@ -6,11 +6,13 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 21:19:09 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/07 21:36:16 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/09 16:50:09 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strncmp(char *s1, char *s2, int n)
+#include "libft.h"
+
+int ft_strncmp(const char *s1, const char *s2, size_t n)
 {
     int size;
 

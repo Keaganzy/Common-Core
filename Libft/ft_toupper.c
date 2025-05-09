@@ -6,15 +6,17 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 20:40:55 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/07 20:46:24 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/09 16:47:13 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int a)
+#include "libft.h"
+
+int ft_toupper(int c)
 {
-    if ('a' >= a && a <= 'z')
+    if ('a' >= c && c <= 'z')
     {
-        a -= 32;
+        c -= 32;
     }
-    return a;
+    return c;
 }

@@ -6,15 +6,17 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 20:47:32 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/07 20:51:34 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/09 16:47:28 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int a)
+#include "libft.h"
+
+int ft_tolower(int c)
 {
-    if('A' >= a && a <= 'Z')
+    if('A' >= c && c <= 'Z')
     {
-        a += 32;
+        c += 32;
     }
-    return a;
+    return c;
 }
