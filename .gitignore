@@ -2,5 +2,9 @@
 *.json
 *.exe
 *.vscode
+*.gch
+*.out
+*.pdf
+*.o
 temp/
 build/
