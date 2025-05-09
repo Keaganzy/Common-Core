@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 10:43:08 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 17:25:51 by ksng             ###   ########.fr       */
+/*   Created: 2025/05/09 17:45:58 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/09 18:01:06 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-    int flag;
-
-    flag = 0;
+    char *ptr;
     
-    while (*src != '\0' && (size - 1) > 0)
+    if (!s1 || !s2)
     {
-        *dst = *src;
-        dst++;
-        src++;
-        size--;
-        flag = 1;
+        return (NULL);
     }
-    if (flag)
+    ptr = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+
+    if (ptr)
     {
-        *dst = '\0';
+        ft_strlcpy(ptr, s1, (ft_strlen(s1) + 1));
+        ft_strlcat(ptr, s2, ((ft_strlen(s1) + ft_strlen(s2)) + 1));
     }
-    return (ft_strlen(src));
+    return (ptr);
 }
+/* int	main()
+{
+	printf("### Function: ft_strjoin ###");
+	printf("\nft_strjoin: %s\n",ft_strjoin("hello","world"));
+} */
