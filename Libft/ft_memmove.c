@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 09:25:34 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 15:44:29 by ksng             ###   ########.fr       */
+/*   Created: 2025/05/09 10:17:05 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/09 15:06:57 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-void *ft_memset(void *str, int a, size_t n)
+void *ft_memmove(void *dest, const void *src, size_t n)
 {
-    while (n > 0)
+    void *temp;
+    
+    temp = dest;
+    if (dest > src)
     {
-        ((unsigned char *)str)[n - 1] = (unsigned char)a;
-        n--;
+        while (n > 0)
+        {
+            ((char *)dest)[n-1] = ((char *)src)[n-1];
+            n--;
+        }
     }
-    return (str);
+    else
+    {
+        while (n > 0)
+        {
+            *((char *)temp) = *((char *)src);
+            temp++;
+            src++;
+            n--;
+        }
+    }
+    return (dest);
 }
-
-/* int	main()
-{
-	char s[] = "123456";
-	char t[] = "123456";
-	memset(s, 'a', 3);
-	ft_memset(t, 'a', 3);
-	printf("OG string: %s", s);
-	printf("\nft string: %s", t);
-} */

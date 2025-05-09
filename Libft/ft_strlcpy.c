@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 09:25:34 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 15:44:29 by ksng             ###   ########.fr       */
+/*   Created: 2025/05/09 10:43:08 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/09 12:23:23 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-void *ft_memset(void *str, int a, size_t n)
+size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {
-    while (n > 0)
-    {
-        ((unsigned char *)str)[n - 1] = (unsigned char)a;
-        n--;
-    }
-    return (str);
-}
+    int flag;
 
-/* int	main()
-{
-	char s[] = "123456";
-	char t[] = "123456";
-	memset(s, 'a', 3);
-	ft_memset(t, 'a', 3);
-	printf("OG string: %s", s);
-	printf("\nft string: %s", t);
-} */
+    flag = 0;
+    
+    while (*src != '\0' && size > 0)
+    {
+        *dst = *src;
+        dst++;
+        src++;
+        size--;
+        flag = 1;
+    }
+    if (flag)
+    {
+        *dst = '\0';
+    }
+    return (ft_strlen(src));
+}

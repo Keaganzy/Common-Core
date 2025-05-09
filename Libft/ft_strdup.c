@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 09:25:34 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 15:44:29 by ksng             ###   ########.fr       */
+/*   Created: 2025/05/09 16:08:27 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/09 16:26:09 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-void *ft_memset(void *str, int a, size_t n)
+char *ft_strdup(const char *s)
 {
-    while (n > 0)
-    {
-        ((unsigned char *)str)[n - 1] = (unsigned char)a;
-        n--;
-    }
-    return (str);
-}
+    char *str;
 
-/* int	main()
+    if (!s)
+    {
+        return (NULL);
+    }
+    str = malloc(ft_strlen(s) + 1);
+    if (str)
+    {
+        ft_strlcpy(str, s, ft_strlen(s));
+        return(str);
+    }
+    else
+    {
+        return (NULL);
+    }
+}
+/* #include <string.h>
+#include <stdio.h>
+
+int	main()
 {
-	char s[] = "123456";
-	char t[] = "123456";
-	memset(s, 'a', 3);
-	ft_memset(t, 'a', 3);
-	printf("OG string: %s", s);
-	printf("\nft string: %s", t);
+	char *s = "helloasdasd";
+	printf("### Function: stdup ###");
+	printf("\nOG: %s:", strdup(s));
+	printf("\nft: %s:\n", ft_strdup(s));
 } */

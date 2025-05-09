@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 09:25:34 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 15:44:29 by ksng             ###   ########.fr       */
+/*   Created: 2025/05/09 10:02:52 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/09 15:06:46 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-void *ft_memset(void *str, int a, size_t n)
+int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
     while (n > 0)
     {
-        ((unsigned char *)str)[n - 1] = (unsigned char)a;
+        if (*((unsigned char *)s1) != *((unsigned char *)s2))
+        {
+            break;
+        }
+        s1++;
+        s2++;
         n--;
     }
-    return (str);
-}
 
-/* int	main()
-{
-	char s[] = "123456";
-	char t[] = "123456";
-	memset(s, 'a', 3);
-	ft_memset(t, 'a', 3);
-	printf("OG string: %s", s);
-	printf("\nft string: %s", t);
-} */
+    if (n == 0)
+    {
+        return (0);
+    }
+    else 
+    {
+        return (*((unsigned char *)s1) - *((unsigned char *)s2));
+    }
+}

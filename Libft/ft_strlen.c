@@ -6,18 +6,19 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 20:28:46 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/07 21:17:48 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/09 12:27:32 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *s)
-{
-    int count;
+#include "libft.h"
 
+size_t ft_strlen(const char *s)
+{
+    size_t count;
+    
     count = 0;
-    while (*s != '\0')
+    while (s[count] != '\0')
     {
-        s++;
         count++;
     }
     return count;
