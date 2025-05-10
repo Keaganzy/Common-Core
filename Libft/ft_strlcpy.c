@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 10:43:08 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 17:25:51 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/10 19:13:29 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,19 @@
 
 size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {
-    int flag;
+	size_t slen;
+	size_t i;
 
-    flag = 0;
-    
-    while (*src != '\0' && (size - 1) > 0)
-    {
-        *dst = *src;
-        dst++;
-        src++;
-        size--;
-        flag = 1;
-    }
-    if (flag)
-    {
-        *dst = '\0';
-    }
-    return (ft_strlen(src));
+	slen = ft_strlen(src);
+	i = 0;
+	if (size > 0)
+	{
+		while (src[i] != '\0' && i < (size - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+    return (slen);
 }

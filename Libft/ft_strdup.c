@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:08:27 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 16:26:09 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/10 19:36:51 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char *ft_strdup(const char *s)
     str = malloc(ft_strlen(s) + 1);
     if (str)
     {
-        ft_strlcpy(str, s, ft_strlen(s));
+        ft_strlcpy(str, s, ft_strlen(s) + 1);
         return(str);
     }
     else

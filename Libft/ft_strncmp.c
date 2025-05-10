@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 21:19:09 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 16:50:09 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/10 18:18:17 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-    int size;
+    size_t size;
 
     size = 0;
     while (*s1 != '\0' && *s2 != '\0' && size < n)

@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:07:57 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 14:00:49 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/10 17:52:50 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char *ft_strnstr(const char *big, const char *little, size_t len)
 {
-    int llen;
+    size_t llen;
     int i;
 
     llen = ft_strlen(little);

@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 15:07:30 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 15:43:22 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/10 17:53:33 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int ft_atoi(const char *nptr)
     i = 0;
     negflag = 1;
     answer = 0;
-    while (9 <= nptr[i] && nptr[i] <= 13 || nptr[i] == 32)
+    while ((9 <= nptr[i] && nptr[i] <= 13) || nptr[i] == 32)
     {
         i++;
     }

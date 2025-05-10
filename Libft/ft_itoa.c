@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 09:38:46 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/10 11:03:07 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/10 20:05:11 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ char *ft_itoa(int n)
     if (!s)
         return (NULL);
     s[msize] = '\0';
+	if (n == 0)
+        s[0] = '0';
+	if (neg)
+        s[0] = '-';
     while (n)
     {
         s[msize - 1] = ft_absb((n % 10)) + '0';
         n /= 10;
         msize--;
-    }
-    if (neg)
-    {
-        s[0] = '-';
     }
     return (s);
 }
@@ -65,5 +65,6 @@ char *ft_itoa(int n)
 
 /* int	main()
 {
-	printf("%s",ft_itoa(-2147483648));
+	printf("%s\n",ft_itoa(-2147483648));
+	printf("%s",ft_itoa(2147483647));
 } */

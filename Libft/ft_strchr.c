@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 20:52:58 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 16:47:58 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/10 18:28:37 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ char *ft_strchr(const char *s, int c)
 {
     while (*s != '\0')
     {
-        if (*s == c)
+        if (*s == (char)c)
         {
-            return s;
+            return (char *)s;
         }
         s++;
     }
     if (c == '\0')
     {
-        return s;
+        return (char *)s;
     }
     return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 15:47:07 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 16:32:26 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/10 19:33:52 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,14 @@
 void *ft_calloc(size_t nmemb, size_t size)
 {
     void *ptr;
+	size_t limits;
 
-    if (nmemb * size > (1LL << 32) - 1)
+	limits = -1;
+	if (!nmemb || !size)
+	{
+		return (malloc(0));
+	}
+    if (limits / nmemb < size)
         return (NULL);
     ptr = malloc(nmemb * size);
     if(ptr)

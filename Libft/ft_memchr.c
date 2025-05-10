@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 09:31:49 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 15:07:03 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/10 17:52:11 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void *ft_memchr(void *s, int c, size_t n)
 {
     while (n > 0)
     {
-        if((unsigned char *)s == (unsigned char)c)
+        if(*((unsigned char *)s) == (unsigned char)c)
         {
             return (s);
         }
