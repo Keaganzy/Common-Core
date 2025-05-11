@@ -1,2 +1,2 @@
-c2r5s3% cc -g -O0 ft_itoa.c                                            
-c2r5s3% valgrind --leak-check=full --track-origins=yes -s ./a.out
+cc -g -O0 ft_itoa.c                                            
+valgrind --leak-check=full --track-origins=yes -s ./a.out
