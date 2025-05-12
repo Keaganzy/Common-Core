@@ -6,18 +6,18 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 09:40:58 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/09 15:06:49 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/12 17:50:03 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    while (n > 0)
-    {
-        ((char *)dest)[n - 1] = ((char *)src)[n - 1];
-        n--;
-    }
-    return (dest);
+	while (n > 0)
+	{
+		((char *)dest)[n - 1] = ((char *)src)[n - 1];
+		n--;
+	}
+	return (dest);
 }

@@ -6,17 +6,17 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:25:07 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/10 18:08:13 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/12 17:58:28 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if ('0' <= c && c <= '9')
-    {
-        return (1);
-    }
-    return (0);
+	if ('0' <= c && c <= '9')
+	{
+		return (1);
+	}
+	return (0);
 }

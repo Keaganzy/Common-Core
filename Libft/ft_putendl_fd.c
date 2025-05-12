@@ -6,13 +6,13 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 12:45:43 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/10 12:51:42 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/12 17:50:42 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	while (*s != '\0')
 	{

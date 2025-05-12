@@ -6,18 +6,17 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:47:27 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/10 18:08:39 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/12 17:58:37 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    if (32 <= c && c <= 126)
-    {
-        return (1);
-    }
-    return (0);
+	if (32 <= c && c <= 126)
+	{
+		return (1);
+	}
+	return (0);
 }
-

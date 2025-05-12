@@ -6,37 +6,37 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:07:57 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/10 17:52:50 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/12 18:04:18 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-    size_t llen;
-    int i;
+	size_t	llen;
+	int		i;
 
-    llen = ft_strlen(little);
-    if (llen == 0)
-        return ((char *)big);
-    while (*big != '\0' && len > 0)
-    {
-        i = 0;
-        while(big[i] == little[i])
-        {
-            if (little[i + 1] == '\0')
-            {
-                if(len < llen)
-                    return (NULL);
-                return ((char *)big);
-            }
-            i++;
-        }
-        big++;
-        len--;
-    }
-    return (NULL);
+	llen = ft_strlen(little);
+	if (llen == 0)
+		return ((char *)big);
+	while (*big != '\0' && len > 0)
+	{
+		i = 0;
+		while (big[i] == little[i])
+		{
+			if (little[i + 1] == '\0')
+			{
+				if (len < llen)
+					return (NULL);
+				return ((char *)big);
+			}
+			i++;
+		}
+		big++;
+		len--;
+	}
+	return (NULL);
 }
 /* #include <bsd/string.h>
 #include <stdio.h>

@@ -6,38 +6,38 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 15:07:30 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/10 17:53:33 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/12 17:44:31 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
-    int i;
-    int negflag;
-    int answer;
-    
-    i = 0;
-    negflag = 1;
-    answer = 0;
-    while ((9 <= nptr[i] && nptr[i] <= 13) || nptr[i] == 32)
-    {
-        i++;
-    }
-    if (nptr[i] == '+' || nptr[i] == '-')
-    {
-        if (nptr[i] == '-')
-            negflag = -1;
-        i++;
-    }
-    while (('0' <= nptr[i] && nptr[i] <= '9') && nptr[i] != '\0')
-    {
-        answer *= 10;
-        answer += nptr[i] - '0';
-        i++;
-    }
-    return (answer * negflag);
+	int	i;
+	int	negflag;
+	int	answer;
+
+	i = 0;
+	negflag = 1;
+	answer = 0;
+	while ((9 <= nptr[i] && nptr[i] <= 13) || nptr[i] == 32)
+	{
+		i++;
+	}
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			negflag = -1;
+		i++;
+	}
+	while (('0' <= nptr[i] && nptr[i] <= '9') && nptr[i] != '\0')
+	{
+		answer *= 10;
+		answer += nptr[i] - '0';
+		i++;
+	}
+	return (answer * negflag);
 }
 
 /* #include <stdio.h>

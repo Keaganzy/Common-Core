@@ -6,13 +6,13 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 12:41:24 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/10 13:49:54 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/12 17:50:59 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	while (*s != '\0')
 	{

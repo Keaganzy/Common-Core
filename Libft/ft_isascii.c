@@ -6,17 +6,17 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:40:34 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/10 18:08:30 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/12 17:58:23 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (0 <= c && c <= 127)
-    {
-        return (1);
-    }
-    return (0);
+	if (0 <= c && c <= 127)
+	{
+		return (1);
+	}
+	return (0);
 }
