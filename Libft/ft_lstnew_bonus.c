@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 14:19:05 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/12 17:49:29 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/12 19:07:30 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*ft_lstnew(void *content)
 	t_list	*new;
 
 	new = malloc(sizeof(t_list));
+	if (!new)
+		return (malloc(0));
 	new->content = content;
 	new->next = NULL;
 	return (new);

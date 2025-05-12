@@ -1,2 +1,5 @@
 cc -g -O0 ft_itoa.c                                            
 valgrind --leak-check=full --track-origins=yes -s ./a.out
+
+norminette -R CheckForbiddenSourceHeader (CFILES)
+norminette -R CheckDefine (HEADERFILES)

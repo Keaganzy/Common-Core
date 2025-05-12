@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 09:31:49 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/12 18:01:55 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/12 18:32:47 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	{
 		if (*((unsigned char *)s) == (unsigned char)c)
 		{
-			return (s);
+			return ((void *)s);
 		}
 		s++;
 		n--;
