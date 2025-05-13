@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 19:56:53 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/12 18:06:18 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/13 20:14:32 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static char	*ft_wordinsert(char const *s, int start, int end)
 static int	ft_wordsplit(char const *s, char c, char **str)
 {
 	size_t	i;
-	size_t	j;
+	int	j;
 	int		index;
 
 	i = -1;
@@ -79,8 +79,8 @@ static int	ft_wordsplit(char const *s, char c, char **str)
 			str[j] = ft_wordinsert(s, index, i);
 			if (!str[j])
 			{
-				while (j-- >= 0)
-					free(str[j]);
+				while (j >= 0)
+					free(str[j--]);
 				return (0);
 			}
 			j++;
@@ -102,6 +102,7 @@ char	**ft_split(char const *s, char c)
 	str[wordcount] = 0;
 	if (!(ft_wordsplit(s, c, str)))
 	{
+		free(str);
 		return (NULL);
 	}
 	return (str);

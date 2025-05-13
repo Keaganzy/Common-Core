@@ -6,13 +6,13 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 20:52:58 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/13 20:16:54 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/13 14:17:17 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-char	*ft_strchr(const char *s, int c) //1024
+char	*ft_strchr(const char *s, int c)
 {
 	while (*s != '\0')
 	{
@@ -22,7 +22,7 @@ char	*ft_strchr(const char *s, int c) //1024
 		}
 		s++;
 	}
-	if ((char)c == '\0')
+	if (c == '\0')
 	{
 		return ((char *)s);
 	}

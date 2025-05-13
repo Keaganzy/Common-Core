@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   a.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 20:52:58 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/13 20:16:54 by ksng             ###   ########.fr       */
+/*   Created: 2025/05/13 16:31:57 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/13 22:09:42 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-char	*ft_strchr(const char *s, int c) //1024
+int main()
 {
-	while (*s != '\0')
-	{
-		if (*s == (char)c)
-		{
-			return ((char *)s);
-		}
-		s++;
-	}
-	if ((char)c == '\0')
-	{
-		return ((char *)s);
-	}
-	return (NULL);
+	
+	printf("asdasd|%-4.2s|\n", "asdasd");
+	
+	/* int rt = printf("asdasd|%-10.1s|\n", 'asdasd');
+	printf("\nrt: %d", rt); */
 }
+
+// c = -,width
+// s = -,width,. Trucnt

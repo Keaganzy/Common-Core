@@ -1,0 +1,63 @@
+Flags Summary for ft_printf (cspdiuxX% conversions):
+
+**Justification and Padding:**
+
+- `-` (Minus): Left Justification
+  - Output is left-aligned within the field width. Extra space on the right.
+  - Example:
+    printf("%10s|\n", "hello");   // Output: "     hello|"
+    printf("%-10s|\n", "hello");  // Output: "hello     |"
+
+- `0` (Zero Padding):
+  - Pads with leading zeros to fill field width (if width > output length and '-' not present).
+  - Primarily for numeric types. Ignored for %c, %s, %%.
+  - Example:
+    printf("%10d|\n", 123);      // Output: "       123|"
+    printf("%010d|\n", 123);      // Output: "0000000123|"
+
+**Precision:**
+
+- `.` (Dot): Precision
+  - For %s: Maximum characters to print.
+    - Example: printf("%.5s|\n", "abcdefg"); // Output: "abcde|"
+  - For %d, %i, %u, %x, %X: Minimum digits (pad with leading zeros).
+    - Example: printf("%.5d|\n", 12); // Output: "00012|"
+  - Ignored for %c and %%.
+
+**Additional Flags:**
+
+- `#` (Hash): Alternate Form
+  - For %x: Prepends "0x".
+    - Example: printf("%#x|\n", 255); // Output: "0xff|"
+  - For %X: Prepends "0X".
+    - Example: printf("%#X|\n", 255); // Output: "0XFF|"
+  - Ignored for %c, %s, %p, %d, %i, %u, %%.
+
+- `+` (Plus): Force Sign
+  - For %d, %i: Prepends "+" for non-negative numbers.
+    - Example: printf("%+d|\n", 123); // Output: "+123|"
+  - Ignored for %c, %s, %p, %u, %x, %X, %%.
+
+- ` ` (Space): Space for Positive
+  - For %d, %i: Prepends " " for non-negative if "+" not present.
+    - Example: printf("% d|\n", 123); // Output: " 123|"
+  - Ignored for %c, %s, %p, %u, %x, %X, %%.
+
+
+  In the printf format specifier, the order generally follows this structure:
+
+%[flags][width][.precision][length modifier]conversion specifier
+So, the flags come before the field minimum width.
+
+In the example %10s:
+
+%: Start of the format specifier.
+(No flags present)
+10: Field minimum width.
+s: Conversion specifier (string).
+If there were flags, they would be placed immediately after the % sign. For example:
+
+%-10s: The - is a flag (left-justify), and 10 is the width.
+%010d: The 0 is a flag (zero-padding), and 10 is the width.
+%+10d: The + is a flag (force sign), and 10 is the width.
+Therefore, in the sequence of elements within a printf format specifier, flags precede the field minimum width.

@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 20:52:58 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/13 20:16:54 by ksng             ###   ########.fr       */
+/*   Created: 2025/05/13 13:53:07 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/13 17:59:20 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFTPRINTF_H
 
-char	*ft_strchr(const char *s, int c) //1024
+# define LIBFTPRINTF_H
+
+#include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+typedef struct s_content
 {
-	while (*s != '\0')
-	{
-		if (*s == (char)c)
-		{
-			return ((char *)s);
-		}
-		s++;
-	}
-	if ((char)c == '\0')
-	{
-		return ((char *)s);
-	}
-	return (NULL);
-}
+	int f_minus;
+	int f_zero_pad;
+	int f_hash;
+	int f_plus;
+	int f_space;
+	int w_width;
+	int p_precision;
+}	t_content;
+
+#endif
