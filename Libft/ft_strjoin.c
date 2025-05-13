@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 17:45:58 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/12 18:05:34 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/13 22:39:29 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	{
 		ft_strlcpy(ptr, s1, (ft_strlen(s1) + 1));
 		ft_strlcat(ptr, s2, ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+	}
+	else
+	{
+		free(ptr);
 	}
 	return (ptr);
 }
