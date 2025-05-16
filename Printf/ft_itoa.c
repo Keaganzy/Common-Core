@@ -6,11 +6,11 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 09:38:46 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 11:53:57 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/16 20:07:16 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_mallocsize(int n, int neg)
 {

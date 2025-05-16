@@ -6,11 +6,11 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 17:45:58 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 11:44:26 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/16 20:08:33 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

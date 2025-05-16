@@ -6,11 +6,11 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 11:12:09 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 15:37:35 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/16 20:08:39 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 int ft_putchar(char c)
 {

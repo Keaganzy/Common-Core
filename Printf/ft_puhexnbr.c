@@ -6,11 +6,11 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:28:05 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 16:42:41 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/16 21:12:13 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 char	*ft_uitoa_base(unsigned int n, int uppercase)
 {
@@ -54,7 +54,7 @@ static char	*apply_hash(char *str, int uppercase, t_content *fwp)
 	char	*prefix;
 	char	*result;
 
-	if (fwp->f_hash)
+	if (fwp->f_hash && str[0] != '0')
 	{
 		if (uppercase)
 			prefix = "0X";

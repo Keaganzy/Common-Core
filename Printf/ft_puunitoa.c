@@ -6,11 +6,11 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:15:25 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 14:55:39 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/16 20:08:25 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_uintlen(unsigned int n)
 {

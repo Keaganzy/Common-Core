@@ -6,11 +6,11 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:41:30 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 12:15:34 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/16 20:08:07 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 int	ft_pupercent(t_content *fwp)
 {

@@ -6,11 +6,11 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:43:01 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 13:07:51 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/16 20:07:23 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 void ft_initcontent(t_content *fwp)
 {

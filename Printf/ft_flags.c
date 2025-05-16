@@ -6,11 +6,11 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 11:57:07 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 13:06:43 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/16 20:07:12 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 int ft_findp(char s, t_content *fwp)
 {

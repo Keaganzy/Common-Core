@@ -6,17 +6,20 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:11:07 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 14:45:22 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/16 22:39:22 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 char *ft_app_preci_str(char *str, int precision)
 {
     int len;
     int i;
     char *new_str;
+
+	if (!str)
+        return NULL;
 
 	len = ft_strlen(str);
 	i = 0;
@@ -42,8 +45,20 @@ int ft_pustring(char *str, t_content *fwp)
 	int len;
 	
 	if (!str)
-		str = "(null)";
-	trunc = ft_app_preci_str(ft_strdup(str), fwp->p_precision);
+    {
+        if (str == 0 || fwp->p_precision > 5)
+            trunc = ft_strdup("(null)");
+        else
+            trunc = ft_strdup("");
+    }
+    else
+    	trunc = ft_app_preci_str(ft_strdup(str), fwp->p_precision);
+
+    if (!trunc)
+	{
+        return (0);
+	}
+
 	formatted = trunc;
 	if (fwp->w_width > (int)ft_strlen(formatted))
 	{

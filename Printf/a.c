@@ -6,12 +6,12 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:31:57 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 19:52:25 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/16 22:38:34 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 int main()
 {
@@ -23,8 +23,8 @@ int main()
 
 	s[0] = 'a';
 	s[1] = '\0';
-	ft_printf("fake|%-10s||%-10i||%-10c||%-10u||%-10x||%-10X||%-10p||%-10d||%%|\n","happy",c,s[0],c,c,c,c,str,c);
-	printf("real|%-10s||%-10i||%-10c||%-10u||%-10x||%-10X||%-10p||%-10d||%%|\n", "happy", c,s[0],c,c,c,c,str,c);
+	ft_printf("fake|%-10s||%-10i||%-10.6c||%-10u||%-10x||%-10X||%-10p||%-10d||%%|\n",0,c,0,c,c,c,c,str,c);
+	printf("real|%-10s||%-10i||%-10.6c||%-10u||%-10x||%-10X||%-10p||%-10d||%%|\n", 0, c,0,c,c,c,c,str,c);
 
 	/*ft_printf("fake|%10s||%10i||%10c||%10u||%10x||%10X||%10p||%10d||%%|\n","happy",c,s[0],c,c,c,c,str,c);
 	printf("real|%10s||%10i||%10c||%10u||%10x||%10X||%10p||%10d||%%|\n", "happy", c,s[0],c,c,c,c,str,c);

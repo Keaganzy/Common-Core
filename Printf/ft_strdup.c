@@ -6,11 +6,11 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:08:27 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 12:24:13 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/16 20:08:29 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 char	*ft_strdup(const char *s)
 {
