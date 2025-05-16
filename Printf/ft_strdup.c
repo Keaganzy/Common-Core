@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 20:52:58 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/13 14:17:17 by ksng             ###   ########.fr       */
+/*   Created: 2025/05/09 16:08:27 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/16 12:24:13 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ftprintf.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strdup(const char *s)
 {
-	while (*s != '\0')
+	char	*str;
+
+	if (!s)
 	{
-		if (*s == (char)c)
-		{
-			return ((char *)s);
-		}
-		s++;
+		return (NULL);
 	}
-	if (c == '\0')
+	str = malloc(ft_strlen(s) + 1);
+	if (str)
 	{
-		return ((char *)s);
+		ft_strlcpy(str, s, ft_strlen(s) + 1);
+		return (str);
 	}
-	return (NULL);
+	else
+	{
+		return (NULL);
+	}
 }
+/* #include <string.h>
+#include <stdio.h>
+
+int	main()
+{
+	char *s = "helloasdasd";
+	printf("### Function: stdup ###");
+	printf("\nOG: %s:", strdup(s));
+	printf("\nft: %s:\n", ft_strdup(s));
+} */
