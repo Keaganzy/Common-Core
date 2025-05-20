@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags.c                                         :+:      :+:    :+:   */
+/*   ft_flags_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 11:57:07 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/17 17:44:30 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/20 16:56:37 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-static int ft_findp(char s, t_content *fwp)
+static int	ft_findp(char s, t_content *fwp)
 {
 	if (s == '.')
 	{
 		fwp->p_precision = 0;
-		
 		return (1);
 	}
 	if ('0' <= s && s <= '9')
@@ -29,7 +28,7 @@ static int ft_findp(char s, t_content *fwp)
 	return (0);
 }
 
-static int ft_findwidth(char s, t_content *fwp)
+static int	ft_findwidth(char s, t_content *fwp)
 {
 	if ('0' <= s && s <= '9')
 	{
@@ -40,7 +39,7 @@ static int ft_findwidth(char s, t_content *fwp)
 	return (0);
 }
 
-static int ft_findflag(char s, t_content *fwp)
+static int	ft_findflag(char s, t_content *fwp)
 {
 	if (s == '-')
 		fwp->f_minus = 1;
@@ -53,11 +52,11 @@ static int ft_findflag(char s, t_content *fwp)
 	else if (s == '+')
 		fwp->f_plus = 1;
 	else
-		return 0;
-	return 1;
+		return (0);
+	return (1);
 }
 
-void ft_findfwp(const char *s, t_content *fwp, int *i)
+void	ft_findfwp(const char *s, t_content *fwp, int *i)
 {
 	while (ft_findflag(s[*i], fwp))
 		(*i)++;

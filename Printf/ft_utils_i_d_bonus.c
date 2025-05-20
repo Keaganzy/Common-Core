@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils_i_d.c                                     :+:      :+:    :+:   */
+/*   ft_utils_i_d_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:35:05 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/20 13:35:45 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/20 16:57:00 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 char	*ft_prepend_prefix(char *str, char *prefix)
 {
@@ -95,11 +95,11 @@ char	*ft_handle_width(char *str, t_content *fwp)
 {
 	char	*temp;
 	char	sign;
-	int		has_prefix;
+	int		has_pfix;
 
-	has_prefix = (str[0] == '-' || str[0] == '+' || str[0] == ' ' || 
-				 (str[0] == '0' && (str[1] == 'x' || str[1] == 'X')));
-	if (fwp->f_zero_pad && fwp->p_precision == -1 && !fwp->f_minus && has_prefix)
+	has_pfix = (str[0] == '-' || str[0] == '+' || str[0] == ' '
+			|| (str[0] == '0' && (str[1] == 'x' || str[1] == 'X')));
+	if (fwp->f_zero_pad && fwp->p_precision == -1 && !fwp->f_minus && has_pfix)
 	{
 		if (str[0] == '0' && (str[1] == 'x' || str[1] == 'X'))
 			return (ft_handle_hex_prefix(str, fwp));

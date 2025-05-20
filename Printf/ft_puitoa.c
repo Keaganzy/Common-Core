@@ -5,54 +5,51 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 10:14:00 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/20 13:35:49 by ksng             ###   ########.fr       */
+/*   Created: 2025/05/20 17:16:00 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/20 17:17:44 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_prep_int_str(int nbr, int neg, t_content *fwp)
+static int	ft_len(int n)
 {
-    char *str;
-    char *prec_str;
-    char *sign_space_str;
+	int	len;
 
-    str = ft_itoa(nbr);
-    if (!str)
-        return (NULL);
-    
-    prec_str = ft_app_preci_num(str, fwp->p_precision);
-    if (!prec_str)
-        return (NULL);
-    
-    sign_space_str = ft_app_plus_and_space(prec_str, neg, fwp);
-    if (!sign_space_str)
-        return (NULL);
-    
-    return (sign_space_str);
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n != 0)
+	{
+		len++;
+		n = n / 10;
+	}
+	return (len);
 }
 
-
-int	ft_puitoa(int nbr, t_content *fwp)
+int	ft_puitoa(int nbr)
 {
-	int		neg;
-	char	*padded_str;
+	char	*arr;
+	long	nb;
 	int		len;
 
-	neg = 0;
+	nb = nbr;
+	len = ft_len(nbr);
+	arr = malloc((len + 1) * sizeof(char));
 	if (nbr < 0)
-		neg = 1;
-	padded_str = ft_prep_int_str(nbr, neg, fwp);
-	if (!padded_str)
-		return (0);
-	len = ft_strlen(padded_str);
-	if (fwp->w_width > len)
-		padded_str = ft_handle_width(padded_str, fwp);
-	if (!padded_str)
-		return (0);
-	len = ft_strlen(padded_str);
-	write(1, padded_str, len);
-	free(padded_str);
-	return (len);
+	{
+		arr[0] = '-';
+		nb = -nb;
+	}
+	if (nb == 0)
+		arr[0] = '0';
+	arr[len] = '\0';
+	while (nb != 0)
+	{
+		arr[--len] = (nb % 10) + '0';
+		nb = nb / 10;
+	}
+	write(1, arr, ft_strlen(arr));
+	free (arr);
+	return (ft_len(nbr));
 }

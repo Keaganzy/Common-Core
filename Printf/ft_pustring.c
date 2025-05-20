@@ -5,70 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 10:11:07 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/20 12:55:36 by ksng             ###   ########.fr       */
+/*   Created: 2025/05/20 17:11:05 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/20 17:35:52 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_app_preci_str(char *str, int precision)
+size_t	ft_strlen(const char *s)
 {
-    int len;
-    int i;
-    char *new_str;
+	size_t	count;
 
-	if (!str)
-        return NULL;
-
-	len = ft_strlen(str);
-	i = 0;
-    if (precision == -1 || precision >= len)
-        return str;
-    new_str = malloc(precision + 1);
-    if (!new_str)
-        return NULL;
-    while (i < precision)
-    {
-        new_str[i] = str[i];
-        i++;
-    }
-    new_str[i] = '\0';
-    free(str);
-    return new_str;
+	count = 0;
+	while (s[count] != '\0')
+	{
+		count++;
+	}
+	return (count);
 }
 
-int ft_pustring(char *str, t_content *fwp)
+int	ft_pustring(char *str)
 {
-	char *trunc;
-	char *formatted;
-	int len;
-	
 	if (!str)
-    {
-        if (str == 0 || fwp->p_precision > 5)
-            trunc = ft_strdup("(null)");
-        else
-            trunc = ft_strdup("");
-    }
-    else
-    	trunc = ft_app_preci_str(ft_strdup(str), fwp->p_precision);
-
-    if (!trunc)
 	{
-        return (0);
+		write(1, "(null)", 6);
+		return (6);
 	}
-
-	formatted = trunc;
-	if (fwp->w_width > (int)ft_strlen(formatted))
-	{
-		if (fwp->f_minus)
-			formatted = ft_left_jus(formatted, fwp->w_width);
-		else
-			formatted = ft_right_jus_spc_zero(formatted, fwp->w_width, 1);
-	}
-	len = ft_strlen(formatted);
-	write(1, formatted, len);
-	free(formatted);
-	return (len);
+	write(1, str, ft_strlen(str));
+	return (ft_strlen(str));
 }

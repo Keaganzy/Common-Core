@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils_libft.c                                   :+:      :+:    :+:   */
+/*   ft_utils_libft_1_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 18:05:52 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/17 18:07:08 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/20 16:57:04 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -85,7 +85,7 @@ size_t	ft_strlen(const char *s)
 	return (count);
 }
 
-int ft_putchar(char c)
+int	ft_putchar(char c)
 {
-    return write(1, &c, 1);
+	return (write(1, &c, 1));
 }
