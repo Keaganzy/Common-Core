@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:28:05 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 21:12:13 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/20 12:53:48 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,7 @@ char	*ft_uitoa_base(unsigned int n, int uppercase)
 		base = "0123456789ABCDEF";
 	else
 		base = "0123456789abcdef";
-	num = n;
-	len = 0;
-	if (n == 0)
-		len = 1;
-	while (num != 0)
-	{
-		num /= 16;
-		len++;
-	}
+	len = ft_counthex((unsigned long)n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
@@ -48,15 +40,14 @@ char	*ft_uitoa_base(unsigned int n, int uppercase)
 	return (str);
 }
 
-// Helper to apply the '#' flag
-static char	*apply_hash(char *str, int uppercase, t_content *fwp)
+static char	*app_hash(char *str, int upper, t_content *fwp, unsigned int n)
 {
 	char	*prefix;
 	char	*result;
 
-	if (fwp->f_hash && str[0] != '0')
+	if (fwp->f_hash && n != 0)
 	{
-		if (uppercase)
+		if (upper)
 			prefix = "0X";
 		else
 			prefix = "0x";
@@ -67,7 +58,6 @@ static char	*apply_hash(char *str, int uppercase, t_content *fwp)
 	return (str);
 }
 
-// Function to prepare the hexadecimal string
 static char	*ft_prep_hex_str(unsigned int n, int uppercase, t_content *fwp)
 {
 	char	*str;
@@ -83,7 +73,7 @@ static char	*ft_prep_hex_str(unsigned int n, int uppercase, t_content *fwp)
 		free(str);
 		return (NULL);
 	}
-	hash_str = apply_hash(ft_strdup(prec_str), uppercase, fwp);
+	hash_str = app_hash(ft_strdup(prec_str), uppercase, fwp, n);
 	if (!hash_str)
 	{
 		free(str);
@@ -93,13 +83,6 @@ static char	*ft_prep_hex_str(unsigned int n, int uppercase, t_content *fwp)
 	free(str);
 	free(prec_str);
 	return (hash_str);
-}
-
-// Function to output hexadecimal string with formatting options
-static void	ft_puthex_body(char *padded_str, int len)
-{
-	write(1, padded_str, len);
-	free(padded_str);
 }
 
 int	ft_puthex(unsigned int n, int uppercase, t_content *fwp)
@@ -121,11 +104,11 @@ int	ft_puthex(unsigned int n, int uppercase, t_content *fwp)
 			padded_str = ft_right_justify(padded_str, fwp->w_width, 0);
 		len = ft_strlen(padded_str);
 	}
-	ft_puthex_body(padded_str, len);
+	write(1, padded_str, len);
+	free(padded_str);
 	return (len);
 }
 
-// Function to handle %x and %X
 int	ft_puhexnbr(unsigned int n, char c, t_content *fwp)
 {
 	int		uppercase;

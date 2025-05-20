@@ -6,16 +6,11 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 11:12:09 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 20:08:39 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/20 12:52:12 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int ft_putchar(char c)
-{
-    return write(1, &c, 1);
-}
 
 char *ft_left_jus(char *str, int width)
 {
@@ -25,7 +20,6 @@ char *ft_left_jus(char *str, int width)
 
     if (!new_str)
         return NULL;
-
     while (i < len)
     {
         new_str[i] = str[i];
@@ -47,6 +41,7 @@ char *ft_right_jus_spc_zero(char *str, int width, int space)
     char *new_str;
     int i;
     char pad;
+	int j;
 
 	len = ft_strlen(str);
 	new_str = malloc(width + 1);
@@ -59,7 +54,7 @@ char *ft_right_jus_spc_zero(char *str, int width, int space)
         pad = '0';
     while (i++ < width - 1 - len)
         new_str[i] = pad;
-    int j = 0;
+    j = 0;
     while (j < len)
     {
         new_str[i + j] = str[j];
@@ -77,78 +72,52 @@ char *ft_right_justify(char *str, int width, int pad_zero)
     return ft_right_jus_spc_zero(str, width, 1);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+//used by x X i and u
+char *ft_create_padded_num(char *str, int precision, int pad, int len)
 {
-	size_t	slen;
-	size_t	i;
+    char    *res;
+    int     i;
+    int     j;
+	int 	negadd;
 
-	slen = ft_strlen(src);
-	i = 0;
-	if (size > 0)
-	{
-		while (src[i] != '\0' && i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (slen);
+    res = malloc(precision + 1 + pad);
+    if (!res)
+        return (NULL);
+    i = 0;
+    if (pad)
+		res[i++] = str[0];
+	negadd = 0;
+	if (pad && str[0] == '-')
+		negadd = 1;
+    j = precision - len + pad + negadd;
+    while (i < j)
+        res[i++] = '0';
+    j = pad;
+    while (str[j])
+        res[i++] = str[j++];
+    res[i] = '\0';
+    return (res);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char *ft_app_preci_num(char *str, int precision)
 {
-	char	*ptr;
+    int     len;
+    int     pad;
+	char *ret;
 
-	if (!s)
-	{
-		return (NULL);
-	}
-	if (len > ft_strlen(s) - start)
-	{
-		len = ft_strlen(s) - start;
-	}
-	if (start > ft_strlen(s))
-	{
-		len = 0;
-		start = ft_strlen(s);
-	}
-	ptr = malloc(sizeof(char) * (len + 1));
-	if (ptr)
-	{
-		ft_strlcpy(ptr, s + start, len + 1);
-	}
-	return (ptr);
+    if (precision == -1)
+        return (str);
+    len = ft_strlen(str);
+    pad = 0;
+    if (str[0] == '-' || str[0] == '+' || str[0] == ' ')
+        pad = 1;
+    if (precision <= (len - pad))
+		return (str);
+	ret = ft_create_padded_num(str, precision, pad, len);
+	free(str);
+    return (ret);
 }
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	count;
 
-	count = 0;
-	while (s[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
-}
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
-{
-	size_t	i;
-	size_t	slen;
-	size_t	dlen;
 
-	i = 0;
-	slen = ft_strlen(src);
-	dlen = ft_strlen(dst);
-	if (size == 0 || size <= dlen)
-		return (slen + size);
-	while (src[i] != '\0' && i < size - dlen - 1)
-	{
-		dst[dlen + i] = src[i];
-		i++;
-	}
-	dst[dlen + i] = '\0';
-	return (dlen + slen);
-}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftprintf.h                                         :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 13:53:07 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 18:22:29 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/20 13:36:52 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,16 @@ int ft_puitoa(int nbr, t_content *fwp);
 char *ft_prep_int_str(int nbr, int neg, t_content *fwp);
 char	*ft_app_plus_and_space(char *str, int neg, t_content *fwp);
 char	*ft_app_preci_num(char *str, int precision);
+char	*ft_handle_width(char *str, t_content *fwp);
 //%xX
 int	ft_puhexnbr(unsigned int n, char c, t_content *fwp);
 int	ft_puthex(unsigned int n, int uppercase, t_content *fwp);
 char	*ft_uitoa_base(unsigned int n, int uppercase);
+int ft_counthex(unsigned long addr);
 //%c
 int ft_puchar(int c, t_content *fwp);
 //main
 int ft_printf(const char *s, ...);
-int ft_printcontent(const char *s, va_list args, int *i);
-void ft_initcontent(t_content *fwp);
 void ft_findfwp(const char *s, t_content *fwp, int *i);
-int ft_findflag(char s, t_content *fwp);
-int ft_findwidth(char s, t_content *fwp);
-int ft_findp(char s, t_content *fwp);
-
 
 #endif

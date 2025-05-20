@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_utils_libft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 17:45:58 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 20:08:33 by ksng             ###   ########.fr       */
+/*   Created: 2025/05/17 18:05:52 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/17 18:07:08 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,60 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	return (ptr);
 }
-/* int	main()
+
+char	*ft_strdup(const char *s)
 {
-	printf("### Function: ft_strjoin ###");
-	printf("\nft_strjoin: %s\n",ft_strjoin("hello","world"));
-} */
+	char	*str;
+
+	if (!s)
+	{
+		return (NULL);
+	}
+	str = malloc(ft_strlen(s) + 1);
+	if (str)
+	{
+		ft_strlcpy(str, s, ft_strlen(s) + 1);
+		return (str);
+	}
+	else
+	{
+		return (NULL);
+	}
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	size;
+
+	size = 0;
+	while (*s1 != '\0' && *s2 != '\0' && size < n)
+	{
+		if (*s1 != *s2)
+		{
+			break ;
+		}
+		s1++;
+		s2++;
+		size++;
+	}
+	if (size == n)
+		return (0);
+	return ((unsigned char) *s1 - (unsigned char) *s2);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	count;
+
+	count = 0;
+	while (s[count] != '\0')
+	{
+		count++;
+	}
+	return (count);
+}
+
+int ft_putchar(char c)
+{
+    return write(1, &c, 1);
+}

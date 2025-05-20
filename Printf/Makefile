@@ -6,16 +6,18 @@
 #    By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/16 11:59:01 by ksng              #+#    #+#              #
-#    Updated: 2025/05/16 17:19:17 by ksng             ###   ########.fr        #
+#    Updated: 2025/05/20 13:37:42 by ksng             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SOURCES = \
-		ft_flags.c ft_itoa.c ft_printf.c ft_puchar.c ft_puhexnbr.c\
-		ft_puitoa.c ft_pupointer.c ft_pustring.c ft_puunitoa.c ft_strdup.c\
-		ft_strjoin.c ft_utils.c ft_pupercent.c
+		ft_flags.c ft_printf.c ft_puchar.c ft_puhexnbr.c\
+		ft_puitoa.c ft_pupointer.c ft_pustring.c ft_puunitoa.c\
+		ft_utils.c ft_pupercent.c ft_utils_i.c ft_utils_libft_1.c\
+		ft_utils_libft_2.c ft_utils_space.c ft_utils_hex.c ft_utils_i_d.c\
+		
 
 OBJECTS = $(SOURCES:.c=.o)
 

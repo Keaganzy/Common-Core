@@ -6,13 +6,13 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:43:01 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 20:07:23 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/17 17:43:38 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_initcontent(t_content *fwp)
+static void ft_initcontent(t_content *fwp)
 {
 	fwp->f_hash = 0;
 	fwp->f_minus = 0;
@@ -23,7 +23,7 @@ void ft_initcontent(t_content *fwp)
 	fwp->p_precision = -1;
 }
 
-int ft_printcontent(const char *s, va_list args, int *i)
+static int ft_printcontent(const char *s, va_list args, int *i)
 {
 	int count;
 	t_content fwp;

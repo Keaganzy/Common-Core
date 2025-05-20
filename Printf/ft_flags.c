@@ -6,13 +6,13 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 11:57:07 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/16 20:07:12 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/17 17:44:30 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_findp(char s, t_content *fwp)
+static int ft_findp(char s, t_content *fwp)
 {
 	if (s == '.')
 	{
@@ -29,7 +29,7 @@ int ft_findp(char s, t_content *fwp)
 	return (0);
 }
 
-int ft_findwidth(char s, t_content *fwp)
+static int ft_findwidth(char s, t_content *fwp)
 {
 	if ('0' <= s && s <= '9')
 	{
@@ -40,7 +40,7 @@ int ft_findwidth(char s, t_content *fwp)
 	return (0);
 }
 
-int ft_findflag(char s, t_content *fwp)
+static int ft_findflag(char s, t_content *fwp)
 {
 	if (s == '-')
 		fwp->f_minus = 1;
