@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 12:23:03 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/23 21:03:58 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/24 21:13:15 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,11 @@ static ssize_t	ft_getbuff(char **buff, ssize_t readsize, int fd)
 		if (!strtemp)
 			return (readsize);
 		readsize = read(fd, strtemp, BUFFER_SIZE);
+		if (readsize < 0)
+		{
+			free(strtemp);
+			return (0);
+		}
 		strtemp[readsize] = '\0';
 		if (readsize != 0)
 		{
@@ -100,7 +105,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	readsize = -1;
+	readsize = 0;
 	line = 0;
 	readsize = ft_getbuff(&readbuff, readsize, fd);
 	while (1)
