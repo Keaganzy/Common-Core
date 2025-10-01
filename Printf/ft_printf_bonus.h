@@ -6,7 +6,7 @@
 /*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 13:53:07 by ksng              #+#    #+#             */
-/*   Updated: 2025/05/20 16:55:56 by ksng             ###   ########.fr       */
+/*   Updated: 2025/05/20 21:50:44 by ksng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-//remove
-# include <stdio.h>
 
 typedef struct s_content
 {

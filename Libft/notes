@@ -3,3 +3,5 @@ valgrind --leak-check=full --track-origins=yes -s ./a.out
 
 norminette -R CheckForbiddenSourceHeader (CFILES)
 norminette -R CheckDefine (HEADERFILES)
+
+nm -u *****.a/.a./out (CHECK FUNCTIONS USED)

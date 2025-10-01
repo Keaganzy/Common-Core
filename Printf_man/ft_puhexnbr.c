@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_puhexnbr.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/20 17:19:22 by ksng              #+#    #+#             */
+/*   Updated: 2025/05/20 17:21:16 by ksng             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+int	ft_puthex(unsigned int n, char c)
+{
+	char	*hex;
+	int		count;
+
+	count = 0;
+	if (c == 'x')
+		hex = "0123456789abcdef";
+	else if (c == 'X')
+		hex = "0123456789ABCDEF";
+	if (n < 16)
+	{
+		ft_pchar(hex[n]);
+		count++;
+	}
+	else
+	{
+		count += ft_phexanbr(n / 16, c);
+		count += ft_phexanbr(n % 16, c);
+	}
+	return (count);
+}

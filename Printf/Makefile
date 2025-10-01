@@ -6,7 +6,7 @@
 #    By: ksng <ksng@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/16 11:59:01 by ksng              #+#    #+#              #
-#    Updated: 2025/05/20 18:07:05 by ksng             ###   ########.fr        #
+#    Updated: 2025/05/21 10:01:20 by ksng             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ $(NAME): $(OBJECTS)
 $(OBJECTS): %.o: %.c $(HDR)
 		$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(OBJECTS) $(BOBJECTS)
+bonus:  $(OBJECTS) $(BOBJECTS)
 		$(AR) -r $(NAME) $(BOBJECTS)
 
 $(BOBJECTS): %.o: %.c $(BHDR)

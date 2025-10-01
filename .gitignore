@@ -5,7 +5,10 @@
 *.gch
 *.out
 *.pdf
+*.txt
 *.o
 temp/
 build/
 tests/
+LOL/
+ref/
