@@ -50,13 +50,13 @@ int	pipex(int argc, char **argv, char *envp[])
 	i = 0;
 	fd = create_fd_pipes(argc);
 	enter_pipe(argv, envp, fd);
-	while (i < (argc - 5) && argc > 5)
-	{
-		middle_pipe(argv[i + 3], envp, fd, i);
-		// close(fd[i][1]);
-		// close(fd[i][0]);
-		i++;
-	}
+	// while (i < (argc - 5) && argc > 5)
+	// {
+	// 	middle_pipe(argv[i + 3], envp, fd, i);
+	// 	// close(fd[i][1]);
+	// 	// close(fd[i][0]);
+	// 	i++;
+	// }
 	ret_value = exit_pipe(argc, argv, envp, fd[i]);
 	free_pipe_fd(fd);
 	return (ret_value);

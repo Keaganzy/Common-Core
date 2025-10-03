@@ -26,10 +26,6 @@ typedef struct s_list
 	char	**bin_path;
 }	t_list;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
-
 int		get_index(const char *s, int c);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 char	*get_next_line(int fd);
@@ -47,12 +43,12 @@ int		**create_fd_pipes(int argc);
 int		open_file(char **argv, int **fd, t_list input);
 int		get_path_index(t_list input, int **fd);
 int		enter_pipe(char **argv, char **envp, int **fd);
-int		middle_pipe(char *argv, char **envp, int **fd, int n);
+// int		middle_pipe(char *argv, char **envp, int **fd, int n);
 int		exit_pipe(int argc, char **argv, char **envp, int *fd);
 
-int		open_file_bonus(char *tmpfilename, int **fd, t_list input);
-int		enter_pipe_bonus(char **argv, char **envp, int **fd);
-int		exit_pipe_bonus(int argc, char **argv, char **envp, int *fd);
+// int		open_file_bonus(char *tmpfilename, int **fd, t_list input);
+// int		enter_pipe_bonus(char **argv, char **envp, int **fd);
+// int		exit_pipe_bonus(int argc, char **argv, char **envp, int *fd);
 
 int		is_valid_command(char **path, char *cmd);
 char	*amend_backslash(char *s);

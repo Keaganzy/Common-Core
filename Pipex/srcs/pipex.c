@@ -65,32 +65,32 @@ int	enter_pipe(char **argv, char **envp, int **fd)
 	return (1);
 }
 
-int	middle_pipe(char *argv, char **envp, int **fd, int n)
-{
-	int		i;
-	int		child_pid;
-	t_list	input;
+// int	middle_pipe(char *argv, char **envp, int **fd, int n)
+// {
+// 	int		i;
+// 	int		child_pid;
+// 	t_list	input;
 
-	child_pid = fork();
-	if (child_pid == -1)
-		perror("FORK");
-	else if (child_pid == 0)
-	{
-		input.cmd = get_args(argv);
-		input.bin_path = get_bin_path(input.cmd[0], envp);
-		i = get_path_index(input, fd);
-		dup2(fd[n][0], STDIN_FILENO);
-		dup2(fd[n + 1][1], STDOUT_FILENO);
-		close(fd[n][1]);
-		close(fd[n][0]);
-		if (execve(input.bin_path[i], input.cmd, envp) == -1)
-			perror(input.cmd[0]);
-		exit (free_struct_fd(input, fd, 1));
-	}
-	else
-		return (0);
-	return (1);
-}
+// 	child_pid = fork();
+// 	if (child_pid == -1)
+// 		perror("FORK");
+// 	else if (child_pid == 0)
+// 	{
+// 		input.cmd = get_args(argv);
+// 		input.bin_path = get_bin_path(input.cmd[0], envp);
+// 		i = get_path_index(input, fd);
+// 		dup2(fd[n][0], STDIN_FILENO);
+// 		dup2(fd[n + 1][1], STDOUT_FILENO);
+// 		close(fd[n][1]);
+// 		close(fd[n][0]);
+// 		if (execve(input.bin_path[i], input.cmd, envp) == -1)
+// 			perror(input.cmd[0]);
+// 		exit (free_struct_fd(input, fd, 1));
+// 	}
+// 	else
+// 		return (0);
+// 	return (1);
+// }
 
 int	exit_pipe(int argc, char **argv, char **envp, int *fd)
 {
