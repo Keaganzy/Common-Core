@@ -39,32 +39,66 @@ int	is_valid_command(char **path, char *cmd)
 	return (-1);
 }
 
+// char	*amend_backslash(char *s)
+// {
+// 	size_t	i;
+// 	size_t	j;
+// 	char	*tmp;
+
+// 	i = 0;
+// 	while (i < ft_strlen(s) - 1)
+// 	{
+// 		if ((s[i] == '\\') && (s[i + 1] == '\\'))
+// 		{
+// 			j = i - 1;
+// 			// j = i;
+// 			while (s[j++] != '\0')
+// 				s[j] = s[j + 1];
+// 		}
+// 		if ((s[i] == '\\') && ((s[i + 1] == '\'') || (s[i + 1] == '\"')))
+// 		{
+// 			j = i - 1;
+// 			// j = i;
+// 			while (s[j++] != '\0')
+// 				s[j] = s[j + 1];
+// 		}
+// 		i++;
+// 	}
+// 	tmp = ft_strdup(s);
+// 	free(s);
+// 	return (tmp);
+// }
+
 char	*amend_backslash(char *s)
 {
 	size_t	i;
-	size_t	j;
-	char	*tmp;
+	char	*result;
+	size_t	write_pos;
 
+	result = malloc(ft_strlen(s) + 1);
+	if (!result)
+		return (NULL);
 	i = 0;
-	while (i < ft_strlen(s) - 1)
+	write_pos = 0;
+	while (s[i])
 	{
-		if ((s[i] == '\\') && (s[i + 1] == '\\'))
+		if (s[i] == '\\' && s[i + 1])
 		{
-			j = i - 1;
-			while (s[j++] != '\0')
-				s[j] = s[j + 1];
+			if (s[i + 1] == '\\' || s[i + 1] == '\'' || 
+				s[i + 1] == '\"' || s[i + 1] == '$')
+			{
+				result[write_pos++] = s[i + 1];
+				i += 2;
+			}
+			else
+				result[write_pos++] = s[i++];
 		}
-		if ((s[i] == '\\') && ((s[i + 1] == '\'') || (s[i + 1] == '\"')))
-		{
-			j = i - 1;
-			while (s[j++] != '\0')
-				s[j] = s[j + 1];
-		}
-		i++;
+		else
+			result[write_pos++] = s[i++];
 	}
-	tmp = ft_strdup(s);
+	result[write_pos] = '\0';
 	free(s);
-	return (tmp);
+	return (result);
 }
 
 char	**get_args(char *cmd)
@@ -80,8 +114,8 @@ char	**get_args(char *cmd)
 		if (ft_strrchr(cmd, '\'') != NULL)
 		{
 			tmp = ft_strtrim(cmd + ft_strlen(args[0]) + 1, " '");
-			if (ft_strrchr(tmp, '\'') != NULL)
-				tmp = ft_strtrim(cmd + ft_strlen(args[0]) + 1, " \"");
+			// if (ft_strrchr(tmp, '\'') != NULL)
+			// 	tmp = ft_strtrim(cmd + ft_strlen(args[0]) + 1, " \"");
 		}
 		if (ft_strncmp(args[0], "awk", 3) == 0)
 			tmp = amend_backslash(tmp);
